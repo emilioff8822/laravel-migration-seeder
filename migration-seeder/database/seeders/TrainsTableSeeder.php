@@ -19,7 +19,7 @@ class TrainsTableSeeder extends Seeder
         $companies = ['Company A', 'Company B', 'Company C'];
         $stations = ['Station 1', 'Station 2', 'Station 3', 'Station 4', 'Station 5'];
 
-        for ($i=0; $i <10 ; $i++) {
+        for ($i=0; $i <60 ; $i++) {
             $new_Train = new Train();
             $new_Train->company = $faker->randomElement($companies);
             $new_Train->departure_station = $faker->randomElement($stations);
@@ -30,7 +30,8 @@ class TrainsTableSeeder extends Seeder
             $new_Train->number_of_carriages = $faker->numberBetween(1, 10);
             $new_Train->is_on_time = $faker->boolean;
             $new_Train->is_cancelled = $faker->boolean;
-            var_dump($new_Train);
+            $new_Train->save();
+
         }
     }
 }
