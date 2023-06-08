@@ -10,7 +10,17 @@ class PageController extends Controller
 {
 public function index(){
 $trains = Train::all();
-return view('welcome', compact('trains'));
+return view('home', compact('trains'));
 
 }
+
+   public function show($train_code)
+{
+    $train = Train::where('train_code', $train_code)->first();
+
+    return view('details', compact('train'));
+}
+
+
+
 }

@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layout.main')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>DB_TRAINS</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
-
+@section('content')
     <main class="bg-light">
         <div class="container">
-            <h1>TRENI</h1>
             <table class="table">
                 <thead>
                     <tr>
@@ -47,6 +30,8 @@
                             <td>{{ $train->number_of_carriages }}</td>
                             <td>{{ $train->is_on_time ? 'Si' : 'No' }}</td>
                             <td>{{ $train->is_cancelled ? 'Si' : 'No' }}</td>
+                            <td><a href="/trains/{{ $train->train_code }}" class="btn btn-primary">DETTAGLI</a></td>
+
 
                         </tr>
                     @endforeach
@@ -57,7 +42,4 @@
 
         </div>
     </main>
-
-</body>
-
-</html>
+@endsection
