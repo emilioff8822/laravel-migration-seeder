@@ -38,7 +38,6 @@
                 <tbody>
                     @foreach ($trains as $train)
                         <tr>
-                            <th scope="row">1</th>
                             <td>{{ $train->company }}</td>
                             <td>{{ $train->departure_station }}</td>
                             <td>{{ $train->arrival_station }}</td>
